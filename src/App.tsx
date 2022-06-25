@@ -1,11 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import useStore from "ShellApp/useStore";
 import SuspenseLayout from "./SuspenseLayout";
-const Login = React.lazy(() => import("OrderApp/Login"));
+const Login = React.lazy(() => import("./Login"));
 const OrderDetail = React.lazy(() => import("OrderApp/OrderDetail"));
 const ProductDetail = React.lazy(() => import("ProductApp/ProductDetail"));
 const App = () => {
+  const {isLogIn} = useStore();
   return (
     <div>
       <BrowserRouter>
@@ -13,14 +15,19 @@ const App = () => {
           <Route
             path="/"
             element={
-              <><SuspenseLayout><Login /></SuspenseLayout></>
+              <>
+                <SuspenseLayout>
+                 <div>ShellApp<Login /></div> 
+                </SuspenseLayout>
+              </>
             }
           />
+          {isLogIn && <>
           <Route
             path="order"
             element={
               <SuspenseLayout>
-                <OrderDetail />
+              <div>OrderApp<OrderDetail /></div>  
               </SuspenseLayout>
             }
           />
@@ -28,10 +35,12 @@ const App = () => {
             path="product"
             element={
               <SuspenseLayout>
-                <ProductDetail />
+                 <div>ProductApp<ProductDetail /></div>
               </SuspenseLayout>
             }
-          />
+          /></>}
+          {/* not found */}
+          <Route path="*" element={<div>Đã đăng nhập chưa, đã đúng route chưa ????? <Link to="/">Go home</Link></div>} />
         </Routes>
       </BrowserRouter>
     </div>

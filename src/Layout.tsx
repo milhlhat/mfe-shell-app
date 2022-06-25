@@ -11,21 +11,46 @@ function Layout({ children }: Props) {
     navigate("/");
   };
   return (
-    <div>
-      <header style={{ display: "flex" }}>
-        <Link to="/">
-          {" "}
-          <h2 style={{ color: "coral", marginTop: 0 }}>
-            Awesome micro-frontend |
-          </h2>
-        </Link>
-        {isLogIn ? (
-          <div>
-            Hello {name} | <button onClick={handleLogout}>Logout</button>
-          </div>
-        ) : (
-          <h2 style={{ color: "royalblue", marginTop: 0 }}> Good morning</h2>
-        )}
+    <div
+      style={{
+        width: "fit-content",
+        margin: "0 auto",
+      }}
+    >
+      <header style={{ marginBottom: 30 }}>
+        <div style={{ display: "flex", marginBottom: 10 }}>
+          <Link to="/">
+            <h2 style={{ color: "coral", margin: 0 }}>
+              Awesome micro-frontend |
+            </h2>
+          </Link>
+          {isLogIn ? (
+            <div>
+              Hello {name} | <button onClick={handleLogout}>Logout</button>
+            </div>
+          ) : (
+            <h2 style={{ color: "royalblue", margin: 0 }}> Good morning</h2>
+          )}
+        </div>
+
+        <ul
+          style={{
+            display: "flex",
+            columnGap: "50px",
+            marginTop: 0,
+            color: "royalblue",
+          }}
+        >
+          <li>
+            <Link to="/">{isLogIn ? "Home" : "Login"}</Link>
+          </li>
+          <li>
+            <Link to="/order">Order</Link>
+          </li>
+          <li>
+            <Link to="/product">Product</Link>
+          </li>
+        </ul>
       </header>
       {children}
       <footer>
