@@ -16,7 +16,7 @@ module.exports = ({ serve }) => {
         filename: "remoteEntry.js",
         remotes: {
           ShellApp : "ShellApp@http://localhost:3060/remoteEntry.js",
-          OrderApp: "OrderApp@http://localhost:9061/remoteEntry.js",
+          OrderApp: "OrderApp@http://localhost:3061/remoteEntry.js",
           ProductApp: "ProductApp@http://localhost:3062/remoteEntry.js",
         },
         exposes: {

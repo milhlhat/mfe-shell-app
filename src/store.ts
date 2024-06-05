@@ -1,6 +1,5 @@
 import create from "zustand";
-import { Account } from "types-shared";
-const useStore = create<Account>((set) => ({
+const useStore = create<any>((set) => ({
   logout() {
     set({
       name: "",

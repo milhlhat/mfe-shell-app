@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 
 import Layout from "./Layout";
 import useStore from "ShellApp/useStore";
-import { Account } from "types-shared";
 type Props = {};
 
 function Login({}: Props) {

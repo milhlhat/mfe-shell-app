@@ -40,7 +40,7 @@ const App = () => {
             }
           /></>}
           {/* not found */}
-          <Route path="*" element={<div>Đã đăng nhập chưa, đã đúng route chưa ????? <Link to="/">Go home</Link></div>} />
+          <Route path="*" element={<div>Chưa đăng nhập? <Link to="/">Go home</Link></div>} />
         </Routes>
       </BrowserRouter>
     </div>
